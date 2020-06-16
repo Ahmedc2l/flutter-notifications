@@ -40,9 +40,21 @@ class _MyAppState extends State<MyApp> {
             },
           ),
           PaddedButton(
-            text: "Schedule Notification after 3 Seconds",
+            text: "Schedule Notification after 5 Seconds",
             onPress: () async{
               await _showScheduledNotification();
+            },
+          ),
+          PaddedButton(
+            text: "Repeat Notification every 1 minute",
+            onPress: () async{
+              await _showRepeatedNotification();
+            },
+          ),
+          FlatButton(
+            child: Text('Cancel Repeating Notification'),
+            onPressed: () async{
+              await flutterLocalNotificationsPlugin.cancelAll();
             },
           )
         ],
@@ -94,12 +106,24 @@ class _MyAppState extends State<MyApp> {
     var platformChannelSpecifics = NotificationDetails(androidPlatformChannelSpecifics, iOSPlatformChannelSpecifics);
 
     await flutterLocalNotificationsPlugin.schedule(
-        0,
+        1,
         'scheduled title',
         'scheduled body',
         scheduledNotificationDateTime,
         platformChannelSpecifics);
 
+  }
+
+  _showRepeatedNotification() async{
+    var androidPlatformChannelSpecifics = AndroidNotificationDetails(
+        'repeating channel id',
+        'repeating channel name',
+        'repeating channel description');
+    var iOSPlatformChannelSpecifics = IOSNotificationDetails();
+    var platformChannelSpecifics = NotificationDetails(
+        androidPlatformChannelSpecifics, iOSPlatformChannelSpecifics);
+    await flutterLocalNotificationsPlugin.periodicallyShow(2, 'repeating title',
+        'repeating body', RepeatInterval.EveryMinute, platformChannelSpecifics);
   }
 }
 
