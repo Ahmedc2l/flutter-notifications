@@ -38,6 +38,12 @@ class _MyAppState extends State<MyApp> {
             onPress: () async{
               await _showPlainNotification();
             },
+          ),
+          PaddedButton(
+            text: "Schedule Notification after 3 Seconds",
+            onPress: () async{
+              await _showScheduledNotification();
+            },
           )
         ],
       ),
@@ -70,6 +76,31 @@ class _MyAppState extends State<MyApp> {
         0, 'plain title', 'plain body', platformChannelSpecifics,
         payload: 'item x');
   }
+
+  _showScheduledNotification() async{
+    var scheduledNotificationDateTime = DateTime.now().add(Duration(seconds: 5));
+
+    var androidPlatformChannelSpecifics = AndroidNotificationDetails(
+        'scheduled channel id',
+        'scheduled channel name',
+        'scheduled channel description',
+        icon: 'app_icon',
+        enableLights: true,
+        color: const Color.fromARGB(255, 255, 0, 0),
+        ledColor: const Color.fromARGB(255, 255, 0, 0),
+        ledOnMs: 1000,
+        ledOffMs: 500);
+    var iOSPlatformChannelSpecifics = IOSNotificationDetails();
+    var platformChannelSpecifics = NotificationDetails(androidPlatformChannelSpecifics, iOSPlatformChannelSpecifics);
+
+    await flutterLocalNotificationsPlugin.schedule(
+        0,
+        'scheduled title',
+        'scheduled body',
+        scheduledNotificationDateTime,
+        platformChannelSpecifics);
+
+  }
 }
 
 class PaddedButton extends StatelessWidget {
@@ -81,7 +112,7 @@ class PaddedButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 32.0, vertical: 16.0),
+      padding: EdgeInsets.symmetric(horizontal: 32.0, vertical: 4.0),
       child: MaterialButton(
         child: Text(text, style: TextStyle(color: Colors.white),),
         color: Theme.of(context).accentColor,
