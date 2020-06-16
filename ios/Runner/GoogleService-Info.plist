@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>750208988124-k0qfek7inaaglfhcvhvaedpqn7guulqs.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.750208988124-k0qfek7inaaglfhcvhvaedpqn7guulqs</string>
+	<key>API_KEY</key>
+	<string>AIzaSyBdglvkftkqIdwzpzel-VlDtpk-PbbXYJY</string>
+	<key>GCM_SENDER_ID</key>
+	<string>750208988124</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.ahmedc2l.flutternotifications</string>
+	<key>PROJECT_ID</key>
+	<string>flutter-demo-ca7ed</string>
+	<key>STORAGE_BUCKET</key>
+	<string>flutter-demo-ca7ed.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:750208988124:ios:7cd09281eededd97ead519</string>
+	<key>DATABASE_URL</key>
+	<string>https://flutter-demo-ca7ed.firebaseio.com</string>
+</dict>
+</plist>
