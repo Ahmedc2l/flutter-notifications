@@ -48,9 +48,10 @@ class _MyAppState extends State<MyApp> {
     notificationAppLaunchDetails = await flutterLocalNotificationsPlugin.getNotificationAppLaunchDetails();
 
     var initializationSettingsIOS = IOSInitializationSettings(
-        requestAlertPermission: false,
-        requestBadgePermission: false,
-        requestSoundPermission: false);
+        requestAlertPermission: true,
+        requestBadgePermission: true,
+        requestSoundPermission: true,
+    );
     var initializationSettingsAndroid = AndroidInitializationSettings('app_icon');
     var initializationSettings = InitializationSettings(
         initializationSettingsAndroid, initializationSettingsIOS);
@@ -74,7 +75,6 @@ class _MyAppState extends State<MyApp> {
 class PaddedButton extends StatelessWidget {
   final String text;
   final VoidCallback onPress;
-
 
   PaddedButton({@required this.text, @required this.onPress});
 
